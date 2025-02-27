@@ -1,65 +1,60 @@
-// components/ExpenseStatistics.jsx
-import { useEffect, useRef } from 'react'
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ExpenseStatistics = () => {
-  const chartRef = useRef(null)
-  
-  // This would typically be fetched from an API
-  const expenseData = [
-    { category: 'Entertainment', percentage: 30, color: '#3A4374' },
-    { category: 'Bill Expense', percentage: 15, color: '#F97316' },
-    { category: 'Investment', percentage: 20, color: '#4169E1' },
-    { category: 'Others', percentage: 35, color: '#1F2937' }
-  ]
-  
-  // In a real application, you would use a charting library like Chart.js or D3.js
-  // Here we're creating a simplified representation
-  
+  const data = {
+    labels: ['Investment', 'Entertainment', 'Bill Expense', 'Others'],
+    datasets: [
+      {
+        data: [20, 30, 15, 35],
+        backgroundColor: ['#4169E1', '#191970', '#FF8C00', '#000000'],
+        borderWidth: 8,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#000",
+          usePointStyle: true,
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            const label = context.label || '';
+            const value = context.parsed;
+            return `${label}: ${value}%`;
+          },
+        },
+      },
+    },
+    layout: {
+      padding: 20,
+    },
+    cutout: '0%', // Make the pie chart a full circle
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="font-bold text-lg mb-6">Expense Statistics</h3>
-      
-      <div className="flex justify-center items-center">
-        <div className="w-48 h-48 relative" ref={chartRef}>
-          {/* This is a simple placeholder for the pie chart */}
-          <div className="w-full h-full rounded-full overflow-hidden relative">
-            {expenseData.map((item, index) => {
-              let rotation = 0
-              for (let i = 0; i < index; i++) {
-                rotation += expenseData[i].percentage * 3.6
-              }
-              
-              return (
-                <div
-                  key={item.category}
-                  className="absolute inset-0"
-                  style={{
-                    background: item.color,
-                    clipPath: `conic-gradient(from ${rotation}deg, ${item.color} 0deg, ${item.color} ${item.percentage * 3.6}deg, transparent ${item.percentage * 3.6}deg)`,
-                  }}
-                ></div>
-              )
-            })}
-          </div>
-        </div>
-        
-        <div className="ml-6 space-y-3">
-          {expenseData.map((item) => (
-            <div key={item.category} className="flex items-center">
-              <div 
-                className="w-4 h-4 rounded-sm mr-2" 
-                style={{ backgroundColor: item.color }}
-              ></div>
-              <div>
-                <p className="text-sm font-medium">{item.percentage}%</p>
-                <p className="text-xs text-gray-500">{item.category}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+
+    <div className="w-full max-h-[370px]">
+      <div className="flex justify-between items-center mb-4">
+        <label className="font-semibold text-[22px]">Expense Statistics</label>
+      </div>
+      <div className="bg-white rounded-[40px] shadow flex justify-center h-[325px]">
+        <Pie data={data} options={options} />
       </div>
     </div>
-  )
-}
 
-export default ExpenseStatistics
+  );
+};
+
+export default ExpenseStatistics;

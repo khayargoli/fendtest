@@ -7,15 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        blue: {
+        blueshade: {
           100: '#8BA3CB',
           500: '#718EBF',
           900: '#343C6A'
         },
-        black: {
+        blackshade: {
           100: '#B1B1B1',
           500: '#232323'
-
+        },
+        grayshade: {
+          500: '#F5F7FA'
         }
       },
     }

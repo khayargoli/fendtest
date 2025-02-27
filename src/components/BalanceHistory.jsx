@@ -1,59 +1,100 @@
-import { useEffect, useRef } from 'react'
+import React from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Filler,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Filler
+);
 
 const BalanceHistory = () => {
-  const chartRef = useRef(null)
-  
-  // This would typically be fetched from an API
-  const months = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan']
-  const balanceData = [150, 320, 270, 470, 270, 570, 370]
-  
-  // In a real application, you would use a charting library like Chart.js or D3.js
-  // Here we're creating a simplified representation
-  
+
+
+  const chartRef = useRef(null);
+  const [gradient, setGradient] = useState(null);
+
+  useEffect(() => {
+    if (chartRef.current) {
+      const ctx = chartRef.current.ctx;
+      const gradientFill = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+      gradientFill.addColorStop(0, '#2D60FF80'); // 50% opacity
+      gradientFill.addColorStop(1, '#2D60FF00'); // 0% opacity
+      setGradient(gradientFill);
+    }
+  }, []);
+
+
+  const data = {
+    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+    datasets: [
+      {
+        label: '',
+        data: [100, 350, 250, 770, 500, 200, 700],
+        fill: true,
+        borderColor: '#1814F3',
+        backgroundColor: gradient || 'rgba(0, 0, 255, 0.2)',
+        borderWidth: 3,
+        tension: 0.6, // Increased for more curvature
+        pointRadius: 0, // Add small points for reference
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 800,
+        ticks: {
+          stepSize: 200,
+        },
+        grid: {
+          color: 'lightgray',
+          borderDash: [5, 5],
+        },
+      },
+      x: {
+        grid: {
+          display: true,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="font-bold text-lg mb-6">Balance History</h3>
-      
-      <div className="relative h-48" ref={chartRef}>
-        {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-400">
-          <span>800</span>
-          <span>600</span>
-          <span>400</span>
-          <span>200</span>
-          <span>0</span>
-        </div>
-        
-        <div className="absolute left-10 right-0 top-0 bottom-0">
-          {/* Chart line representation - in a real app you'd use SVG */}
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-blue-50 rounded-lg"></div>
-            
-            {/* Simple line representation */}
-            <div className="absolute inset-0 flex items-end">
-              <svg className="w-full h-full" viewBox={`0 0 ${months.length * 100} 100`} preserveAspectRatio="none">
-                <path
-                  d={`M0,${100 - (balanceData[0] / 800) * 100} ${months.map((_, i) => 
-                    `L${(i + 1) * 100},${100 - (balanceData[i + 1 < balanceData.length ? i + 1 : i] / 800) * 100}`
-                  ).join(' ')}`}
-                  fill="none"
-                  stroke="#3B82F6"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
-            
-            {/* X-axis labels */}
-            <div className="absolute -bottom-6 left-0 w-full flex justify-between text-xs text-gray-400">
-              {months.map((month) => (
-                <span key={month}>{month}</span>
-              ))}
-            </div>
-          </div>
-        </div>
+    
+    <div className="w-full max-h-[325px]">
+      <div className="flex justify-between items-center mb-4">
+        <label className="font-semibold text-[22px]">Expense Statistics</label>
+      </div>
+      <div className="bg-white rounded-[40px] shadow h-[275px] p-6">
+        <Line ref={chartRef} data={data} options={options} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BalanceHistory
+export default BalanceHistory;
