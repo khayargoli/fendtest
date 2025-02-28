@@ -22,20 +22,6 @@ This project fulfills the following technical requirements:
 4.  **Charting Library:**
     * Chart.js along with react-chartjs-2 is used for rendering the line charts and the pie chart.
 
-## Project Structure
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── index.css
-├── package.json
-├── vite.config.js
-├── README.md
-
 ## Getting Started
 
 Follow these steps to run the React application locally:
