@@ -15,7 +15,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1  lg:grid-cols-3 gap-y-6 md:gap-6">
 
         <div className="col-span-2 flex-col gap-x-[40px]">
-         <CreditCardList />
+          <CreditCardList />
         </div>
 
         <div className="col-span-1">
@@ -34,14 +34,16 @@ const Dashboard = () => {
       </div>
 
       {/* Transfer and Balance History Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-y-6 md:gap-6">
-        <div>
+      <div className="flex flex-col lg:flex-row gap-y-6 md:gap-6">
+        <div className="lg:w-[40%]">
           <QuickTransfer />
         </div>
-        <div>
+        <div className="lg:w-[60%]">
           <BalanceHistory />
         </div>
       </div>
+      <br />
+      <br />
     </div>
   )
 }
