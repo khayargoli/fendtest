@@ -20,7 +20,7 @@ const DashboardLayout = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header  toggleSidebar={toggleSidebar} />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-grayshade-500 p-[40px]">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-white md:bg-grayshade-500 p-[40px]">
           <Outlet />
         </main>
       </div>

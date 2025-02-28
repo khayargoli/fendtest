@@ -27,13 +27,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
   const navItems = [
     { id: 1, name: "Dashboard", path: "/", icon: "home" },
-    { id: 2, name: "Transactions", path: "/transactions", icon: "transfer" },
-    { id: 3, name: "Accounts", path: "/accounts", icon: "user" },
-    { id: 4, name: "Investments", path: "/investments", icon: "investment" },
-    { id: 5, name: "Credit Cards", path: "/credit-cards", icon: "creditcard" },
-    { id: 6, name: "Loans", path: "/loans", icon: "loan" },
-    { id: 7, name: "Services", path: "/services", icon: "service" },
-    { id: 8, name: "My Privileges", path: "/privileges", icon: "economics" },
+    { id: 2, name: "Transactions", path: "", icon: "transfer" },
+    { id: 3, name: "Accounts", path: "", icon: "user" },
+    { id: 4, name: "Investments", path: "", icon: "investment" },
+    { id: 5, name: "Credit Cards", path: "", icon: "creditcard" },
+    { id: 6, name: "Loans", path: "", icon: "loan" },
+    { id: 7, name: "Services", path: "", icon: "service" },
+    { id: 8, name: "My Privileges", path: "", icon: "economics" },
     { id: 9, name: "Setting", path: "/settings", icon: "settings" },
   ];
 
@@ -71,14 +71,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 key={item.id}
                 to={item.path}
                 onClick={() => {
+                  if (!item.path) return;
                   if (window.innerWidth < 1024) {
                     toggleSidebar();
                   }
                 }}
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-3 text-gray-600 rounded-lg transition-colors ${isActive
-                    ? "text-blackshade-500 font-medium"
-                    : "hover:bg-gray-50"
+                  `flex items-center px-4 py-3 text-gray-600 rounded-lg transition-colors ${isActive ? "text-blackshade-500 font-medium" : "hover:bg-gray-50"
                   }`
                 }
               >
@@ -96,9 +95,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                   </>
                 )}
               </NavLink>
-            );
+            )
           })}
         </nav>
+
       </div>
 
     </>

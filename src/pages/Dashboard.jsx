@@ -4,37 +4,18 @@ import ExpenseStatistics from '../components/ExpenseStatistics'
 import QuickTransfer from '../components/QuickTransfer'
 import BalanceHistory from '../components/BalanceHistory'
 import RecentTransactions from '../components/RecentTransactions'
+import CreditCardList from '../components/CreditCardList'
 
 const Dashboard = () => {
-  return (
-    <div className="space-y-6 max-w-[1110px]">
 
-      <div className="grid grid-cols-1  md:grid-cols-3 gap-6">
+
+  return (
+    <div className="space-y-6 max-w-[1110px] m-auto">
+
+      <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
 
         <div className="col-span-2 flex-col gap-x-[40px]">
-
-          {/* My Cards Section */}
-          <div className="flex items-center justify-between mb-4">
-            <label className="font-semibold text-[22px]">My Cards</label>
-            <a href="#" className="text-indigo-600 font-medium">See All</a>
-          </div>
-
-          <div className="col-span-2 flex gap-x-[30px]">
-            <CreditCard
-              type="dark"
-              balance={5756}
-              cardHolder="Eddy Cusuma"
-              validThru="12/22"
-              cardNumber="3778 **** **** 1234"
-            />
-            <CreditCard
-              type="light"
-              balance={5756}
-              cardHolder="Eddy Cusuma"
-              validThru="12/22"
-              cardNumber="3778 **** **** 1234"
-            />
-          </div>
+         <CreditCardList />
         </div>
 
         <div className="col-span-1">
@@ -43,7 +24,7 @@ const Dashboard = () => {
       </div>
 
       {/* Charts and Activities Section */}
-      <div className="grid grid-cols-1  md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
         <div className="col-span-2" >
           <WeeklyActivity />
         </div>
@@ -53,7 +34,7 @@ const Dashboard = () => {
       </div>
 
       {/* Transfer and Balance History Section */}
-      <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6">
         <div>
           <QuickTransfer />
         </div>

@@ -1,4 +1,3 @@
-
 import { IconCardChip } from './icon-components/IconCardChip';
 import MasterCard from '../assets/icons/mastercard.svg?react';
 
@@ -9,7 +8,7 @@ const CreditCard = ({ type, balance, cardHolder, validThru, cardNumber }) => {
   }).format(balance)
 
   return (
-    <div className={`${type === 'dark' ? 'credit-card' : 'light-credit-card'} shadow-lg w-[350px] h-[235px]`}>
+    <div className={`${type === 'dark' ? 'credit-card' : 'light-credit-card border-[#DFEAF2] border'} min-w-[350px] min-h-[235px]`}>
       <div className='p-6 pb-0 h-[165px]'>
         <div className="flex justify-between items-center mb-8">
           <div>

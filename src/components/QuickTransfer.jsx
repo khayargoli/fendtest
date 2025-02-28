@@ -18,8 +18,6 @@ const QuickTransfer = () => {
   ]
 
   const handleSend = () => {
-    console.log(`Sending $${amount} to ${selectedContact?.name}`)
-    // In a real app, this would call an API
     setAmount('')
     setSelectedContact(null)
   }
@@ -31,7 +29,7 @@ const QuickTransfer = () => {
       </div>
       <div className="bg-white rounded-[40px] h-[275px] p-7">
         <div className='flex items-center justify-between'>
-          <div className="flex space-x-8  overflow-x-auto items-center pr-1">
+          <div className="flex space-x-8  overflow-x-auto items-center pr-1 hide-scrollbar">
             {contacts.map((contact) => (
               <button
                 key={contact.id}
@@ -50,29 +48,6 @@ const QuickTransfer = () => {
             </div>
           </button>
         </div>
-        {/* <div className="flex space-x-2">
-          <div className="flex-1">
-            <label className="block text-sm text-gray-500 mb-1">Write Amount</label>
-            <input
-              type="text"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              placeholder="525.50"
-              className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-          <button
-            onClick={handleSend}
-            disabled={!amount || !selectedContact}
-            className={`px-5 rounded-lg flex items-center justify-center space-x-2 ${amount && selectedContact
-              ? 'bg-gray-900 text-white'
-              : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
-          >
-            <span>Send</span>
-            <div className="w-5 h-5"><SendIcon /></div>
-          </button>
-        </div> */}
 
         <div className="flex items-center relative mt-10">
           <span className="mr-2 text-[16px] font-normal text-[#718EBF]">Write Amount</span>
@@ -83,7 +58,7 @@ const QuickTransfer = () => {
             placeholder="525.50"
             className="border-none outline-none ml-[15px] pl-[25px] rounded-full bg-gray-100 mr-2 w-[225px] h-[50px]  text-[#718EBF]"
           />
-          <button className="border-none justify-center outline-none w-[125px] h-[50px] rounded-full bg-[#232323] text-white flex items-center absolute right-0 top-1/2 transform -translate-y-1/2"
+          <button className="hover:text-lg transition-all cursor-pointer border-none justify-center outline-none w-[125px] h-[50px] rounded-full bg-[#232323] text-white flex items-center absolute right-0 top-1/2 transform -translate-y-1/2"
             onClick={handleSend}
             disabled={!amount || !selectedContact}>
             Send &nbsp;
@@ -93,8 +68,6 @@ const QuickTransfer = () => {
         </div>
       </div>
     </div >
-
-
   )
 }
 
