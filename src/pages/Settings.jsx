@@ -58,7 +58,7 @@ const Settings = () => {
 
   return (
     <div >
-      <div className="bg-white rounded-[25px]  px-5 max-w-[1110px] m-auto">
+      <div className="bg-white rounded-[25px] max-w-[1110px] m-auto">
         {/* Tabs */}
         <div className="flex border-b border-[#F4F5F7] pt-2">
           <button
@@ -92,7 +92,7 @@ const Settings = () => {
 
         {/* Profile Edit Form */}
         {activeTab === 'profile' && (
-          <form onSubmit={handleSubmit(onSubmit)} className="p-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="p-4  md:p-8">
             <div className="flex flex-col md:flex-row items-center md:items-start">
               <div className="flex mb-8 w-[155px]  justify-center md:justify-start">
                 <div className="relative h-[90px]">
