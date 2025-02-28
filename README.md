@@ -12,6 +12,7 @@ This project fulfills the following technical requirements:
     * **React Router:** For navigation between Dashboard and Settings pages.
     * **Chart.js:** Used for rendering financial charts.
     * **React-chartjs-2:** React wrapper for Chart.js.
+    * **Zod:** Library for validation of forms.
 
 2.  **API Integration:**
     * Dummy API endpoints have been mocked to fetch user information, card details, transaction history, and chart data. Custom React hooks were used to simulate API calls and manage data fetching.
