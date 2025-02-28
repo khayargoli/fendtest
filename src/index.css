@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --primary-color: #3056D3;
   --secondary-color: #6B7280;
@@ -26,6 +28,7 @@ body {
   background: linear-gradient(107.38deg, #5B5A6F 2.61%, #000000 101.2%);
   color: white;
   border-radius: 25px;
+  font-family: 'Lato';
 }
 
 .bottom-gradient {

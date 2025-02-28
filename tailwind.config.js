@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'lato': ['Lato', 'sans-serif'], 
+      },
       colors: {
         blueshade: {
           100: '#8BA3CB',

@@ -30,15 +30,19 @@ const QuickTransfer = () => {
       <div className="bg-white rounded-[40px] h-[275px] p-7">
         <div className='flex items-center justify-between'>
           <div className="flex space-x-8  overflow-x-auto items-center pr-1 hide-scrollbar">
-            {contacts.map((contact) => (
+            {contacts.map((contact, index) => (
               <button
                 key={contact.id}
-                className={`flex flex-col items-center space-y-2 min-w-[80px] `}
+                className={`flex flex-col items-center space-y-2 min-w-[80px]`}
                 onClick={() => setSelectedContact(contact)}
               >
-                <div className="w-[70px] h-[70px]"><img className='rounded-full' src={contact.avatar} /></div>
-                <p className="text-sm font-medium">{contact.name}</p>
-                <p className="text-xs text-[#718EBF]">{contact.role}</p>
+                <div className="w-[70px] h-[70px]">
+                  <img className="rounded-full" src={contact.avatar} alt={contact.name} />
+                </div>
+                <p className={`text-sm ${index === 0 ? "font-bold" : "font-medium"} text-blackshade-500`}>
+                  {contact.name}
+                </p>
+                <p className={`text-sm ${index === 0 ? "font-bold" : "font-medium"} text-[#718EBF]`}>{contact.role}</p>
               </button>
             ))}
           </div>
