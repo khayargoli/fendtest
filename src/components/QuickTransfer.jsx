@@ -27,7 +27,7 @@ const QuickTransfer = () => {
       <div className="flex justify-between items-center mb-4">
         <label className="font-semibold text-[22px]">Quick Transfer</label>
       </div>
-      <div className="bg-white rounded-[40px] h-[275px] p-7">
+      <div className="bg-white rounded-[40px] h-[275px] p-2 md:p-6">
         <div className='flex items-center justify-between'>
           <div className="flex space-x-8  overflow-x-auto items-center pr-1 hide-scrollbar">
             {contacts.map((contact, index) => (

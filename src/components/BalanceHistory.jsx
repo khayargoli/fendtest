@@ -83,13 +83,13 @@ const BalanceHistory = () => {
             },
         },
         onComplete: () => {
-          if (chartRef.current && chartRef.current.chart) {
-            const ctx = chartRef.current.chart.ctx;
-            const gradientFill = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
-            gradientFill.addColorStop(0, '#2D60FF80');
-            gradientFill.addColorStop(1, '#2D60FF00');
-            setGradient(gradientFill);
-          }
+            if (chartRef.current && chartRef.current.chart) {
+                const ctx = chartRef.current.chart.ctx;
+                const gradientFill = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+                gradientFill.addColorStop(0, '#2D60FF80');
+                gradientFill.addColorStop(1, '#2D60FF00');
+                setGradient(gradientFill);
+            }
         }
     };
 
@@ -98,7 +98,7 @@ const BalanceHistory = () => {
             <div className="flex justify-between items-center mb-4">
                 <label className="font-semibold text-[22px]">Balance History</label>
             </div>
-            <div className="bg-white rounded-[40px]  h-[275px] p-6">
+            <div className="bg-white rounded-[40px]  h-[275px] p-2 md:p-6">
                 {loading ? (
                     <LoadingComponent />
                 ) : error ? (

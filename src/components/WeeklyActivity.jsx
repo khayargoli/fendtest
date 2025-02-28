@@ -76,7 +76,7 @@ const WeeklyActivity = () => {
       <div className="flex justify-between items-center mb-4">
         <label className="font-semibold text-[22px]">Weekly Activity</label>
       </div>
-      <div className="bg-white rounded-[40px] p-6 h-[325px]">
+      <div className="bg-white rounded-[40px] p-2 md:p-6 h-[325px]">
         {loading ? (
           <LoadingComponent />
         ) : error ? (
