@@ -36,7 +36,7 @@ Follow these steps to run the React application locally:
 1.  **Clone the repository:**
 
     ```bash
-    git clone [repository URL]
+    git clone https://github.com/khayargoli/fendtest.git
     cd fendtest
     ```
 
