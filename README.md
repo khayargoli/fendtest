@@ -1,4 +1,4 @@
-# React Financial Dashboard
+# Soar Financial Dashboard
 
 This project is a React.js-based financial dashboard designed to display user information, card details, transaction history, and various financial charts.
 
@@ -8,7 +8,6 @@ This project fulfills the following technical requirements:
 
 1.  **Frameworks/Libraries:**
     * **React.js:** Used as the primary framework for the front end.
-    * **Context API:** Utilized for state management across the application.
     * **TailwindCSS:** Employed for styling the components.
     * **React Router:** For navigation between Dashboard and Settings pages.
     * **Chart.js:** Used for rendering financial charts.
