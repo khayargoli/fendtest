@@ -1,0 +1,49 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #3056D3;
+  --secondary-color: #6B7280;
+  --background-color: #F9FAFB;
+  --card-background: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+.credit-card {
+  background: linear-gradient(107.38deg, #5B5A6F 2.61%, #000000 101.2%);
+  color: white;
+  border-radius: 25px;
+}
+
+.bottom-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+
+}
+
+.light-credit-card {
+  background: #FFFFFF;
+  border-radius: 25px;
+}
+
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
