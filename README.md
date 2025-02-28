@@ -1,4 +1,4 @@
-# React Financial Dashboard
+# Soar Financial Dashboard
 
 This project is a React.js-based financial dashboard designed to display user information, card details, transaction history, and various financial charts.
 
@@ -8,7 +8,6 @@ This project fulfills the following technical requirements:
 
 1.  **Frameworks/Libraries:**
     * **React.js:** Used as the primary framework for the front end.
-    * **Context API:** Utilized for state management across the application.
     * **TailwindCSS:** Employed for styling the components.
     * **React Router:** For navigation between Dashboard and Settings pages.
     * **Chart.js:** Used for rendering financial charts.
@@ -22,20 +21,6 @@ This project fulfills the following technical requirements:
 
 4.  **Charting Library:**
     * Chart.js along with react-chartjs-2 is used for rendering the line charts and the pie chart.
-
-## Project Structure
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── index.css
-├── package.json
-├── vite.config.js
-├── README.md
 
 ## Getting Started
 
@@ -51,7 +36,7 @@ Follow these steps to run the React application locally:
 1.  **Clone the repository:**
 
     ```bash
-    git clone [repository URL]
+    git clone https://github.com/khayargoli/fendtest.git
     cd fendtest
     ```
 
